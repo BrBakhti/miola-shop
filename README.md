@@ -16,7 +16,6 @@ Application backend d'un magasin de voitures en ligne, developpee dans le cadre 
 
 - **Encadrant** : Pr. Khalid Nafil
 - **Auteur** : Brahim Bakhti
-- **Master** : MIOLA - ENSIAS
 
 ---
 
