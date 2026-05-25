@@ -11,7 +11,9 @@
 </p>
 
 **Auteur :** Brahim Bakhti
+
 **Encadrant :** Pr. Khalid Nafil — ENSIAS
+
 **GitHub :** https://github.com/BrBakhti/miola-shop
 
 ---
