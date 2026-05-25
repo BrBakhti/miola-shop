@@ -34,25 +34,25 @@
 ## Structure du projet
 
 miola-shop/
-├── src/                          # Backend Spring Boot
+├── src/                          
 │   └── main/java/org/cours/springdatarest/
-│       ├── auth/                 # AuthController, JWT login
-│       ├── modele/               # Voiture, Proprietaire, Repos
-│       ├── security/             # JwtUtil, JwtFilter, SecurityConfig
-│       └── web/                  # VoitureController, AiController
-├── frontend/                     # Frontend React
+│       ├── auth/                 
+│       ├── modele/              
+│       ├── security/             
+│       └── web/                  
+├── frontend/                    
 │   └── src/Components/
-│       ├── Login.js              # Authentification JWT
-│       ├── VoitureListe.js       # Liste voitures
-│       ├── Voiture.js            # Ajout / modification
-│       ├── AiChat.js             # Assistant IA
-│       └── NavigationBar.js      # Navigation + roles
-├── k8s/                          # Fichiers Kubernetes
-│   ├── mysql-configMap.yaml      # Configuration DB
-│   ├── mysql-secrets.yaml        # Secrets DB base64
-│   ├── db-deployment.yaml        # PVC + MySQL + Service
-│   └── app-deployment.yaml       # Spring Boot + Service
-├── Dockerfile                    # Multi-stage build
+│       ├── Login.js             
+│       ├── VoitureListe.js      
+│       ├── Voiture.js           
+│       ├── AiChat.js            
+│       └── NavigationBar.js      
+├── k8s/                          
+│   ├── mysql-configMap.yaml      
+│   ├── mysql-secrets.yaml      
+│   ├── db-deployment.yaml        
+│   └── app-deployment.yaml       
+├── Dockerfile                    
 ├── docker-compose.yml
 └── README.md
 
