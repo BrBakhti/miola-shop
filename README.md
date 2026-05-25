@@ -246,4 +246,4 @@ minikube delete --all --purge
 
 ---
 
-Projet academique — Full Stack Master MIOLA — ENSIAS 2025/2026
+Projet academique — ENSIAS 2025/2026
