@@ -198,3 +198,96 @@ docker-compose down
 ## Licence
 
 Projet academique - Full Stack - ENSIAS - 2025/2026
+
+---
+
+## Deploiement Kubernetes (Lab 2)
+
+### Architecture Kubernetes
+
+\\\
++-------------------------------------------------+
+¦                Minikube Node                    ¦
+¦                                                 ¦
+¦  +---------------------+  +------------------+  ¦
+¦  ¦ springboot-crud-app  ¦  ¦     mysql        ¦  ¦
+¦  ¦ replicas: 3          ¦  ¦  replicas: 1     ¦  ¦
+¦  ¦ port: 8082           ¦--¦  port: 3306      ¦  ¦
+¦  ¦ (NodePort service)   ¦  ¦  (ClusterIP None)¦  ¦
+¦  +---------------------+  +------------------+  ¦
+¦                                                 ¦
+¦  ConfigMap: db-config (host, dbName)            ¦
+¦  Secret: mysql-secrets (username, password)     ¦
+¦  PVC: mysql-pv-claim (1Gi)                      ¦
++-------------------------------------------------+
+\\\
+
+### Prerequis
+- Docker Desktop
+- Minikube installe
+- kubectl installe
+
+### Lancer avec Kubernetes
+
+\\\ash
+# 1. Demarrer Minikube
+minikube start --driver=docker
+
+# 2. Pointer Docker vers Minikube
+minikube docker-env | Invoke-Expression
+
+# 3. Builder l image Spring Boot
+docker build -t springboot-crud-k8s:1.0 .
+
+# 4. Deployer ConfigMap et Secrets
+kubectl apply -f k8s/mysql-configMap.yaml
+kubectl apply -f k8s/mysql-secrets.yaml
+
+# 5. Deployer MySQL
+kubectl apply -f k8s/db-deployment.yaml
+kubectl get pods -w   # attendre Running
+
+# 6. Deployer Spring Boot (3 replicas)
+kubectl apply -f k8s/app-deployment.yaml
+kubectl get pods -w   # attendre 3/3 Running
+
+# 7. Acceder au service
+kubectl port-forward svc/springboot-crud-svc 8082:8082
+\\\
+
+- API : http://localhost:8082/api/voitures
+- Login : POST http://localhost:8082/auth/login
+
+### Commandes utiles
+
+\\\ash
+kubectl get pods                    # etat des pods
+kubectl get deployments             # etat des deploiements
+kubectl get svc                     # liste des services
+kubectl logs <nom-pod>              # logs d un pod
+kubectl describe pod <nom-pod>      # detail d un pod
+minikube dashboard                  # tableau de bord
+\\\
+
+### Structure k8s/
+
+\\\
+k8s/
++-- mysql-configMap.yaml    # host=mysql, dbName=miola
++-- mysql-secrets.yaml      # username + password base64
++-- db-deployment.yaml      # PVC + Deployment + Service MySQL
++-- app-deployment.yaml     # Deployment + Service Spring Boot
+\\\
+
+---
+
+## Frontend React
+
+\\\ash
+cd frontend
+npm install
+npm start
+\\\
+- Frontend : http://localhost:3000
+- Connexion backend : http://localhost:8082 (Kubernetes) ou http://localhost:9090 (Docker)
+
