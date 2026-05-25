@@ -55,7 +55,6 @@ miola-shop/
 ├── Dockerfile                    
 ├── docker-compose.yml
 └── README.md
-
 ---
 
 ## Option 1 — Docker Compose
