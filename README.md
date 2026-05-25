@@ -1,5 +1,4 @@
-Voici un README professionnel :
-powershellSet-Content C:\Users\ibrahim\Downloads\Maven\README.md @"
+
 # MIOLA Shop - Backend
 
 <p align="center">
