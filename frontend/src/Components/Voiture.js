@@ -37,7 +37,7 @@ class Voiture extends Component {
     componentDidMount() {
         const voitureId = this.props.params && this.props.params.id;
         if (voitureId) {
-            axios.get("http://localhost:8082/voitures/" + voitureId, getAuthHeaders())
+            axios.get("http://localhost:9090/voitures/" + voitureId, getAuthHeaders())
                 .then(response => {
                     const { marque, modele, couleur, immatricule, prix, annee } = response.data;
                     this.setState({ marque, modele, couleur, immatricule, prix, annee });
@@ -59,7 +59,7 @@ class Voiture extends Component {
         };
         const voitureId = this.props.params && this.props.params.id;
         if (voitureId) {
-            axios.put("http://localhost:8082/voitures/" + voitureId, voiture, getAuthHeaders())
+            axios.put("http://localhost:9090/voitures/" + voitureId, voiture, getAuthHeaders())
                 .then(response => {
                     if (response.data != null) {
                         this.setState({ show: true });
@@ -70,7 +70,7 @@ class Voiture extends Component {
                     }
                 });
         } else {
-            axios.post("http://localhost:8082/voitures", voiture, getAuthHeaders())
+            axios.post("http://localhost:9090/voitures", voiture, getAuthHeaders())
                 .then(response => {
                     if (response.data != null) {
                         this.setState({ ...this.initialState, show: true });

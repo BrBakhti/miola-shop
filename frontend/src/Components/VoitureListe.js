@@ -17,13 +17,13 @@ export default class VoitureListe extends Component {
     }
 
     componentDidMount() {
-        axios.get("http://localhost:8082/voitures", getAuthHeaders())
+        axios.get("http://localhost:9090/voitures", getAuthHeaders())
             .then(response => response.data)
             .then((data) => { this.setState({ voitures: data }); });
     }
 
     deleteVoiture = (voitureId) => {
-        axios.delete("http://localhost:8082/voitures/" + voitureId, getAuthHeaders())
+        axios.delete("http://localhost:9090/voitures/" + voitureId, getAuthHeaders())
             .then(response => {
                 if (response.data != null) {
                     this.setState({

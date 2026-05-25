@@ -25,8 +25,8 @@ export default class AiChat extends Component {
         this.setState({ loading: true });
 
         const url = this.state.mode === 'chat'
-            ? 'http://localhost:8082/ai/chat'
-            : 'http://localhost:8082/ai/recommander';
+            ? 'http://localhost:9090/ai/chat'
+            : 'http://localhost:9090/ai/recommander';
 
         try {
             const response = await axios.post(url, this.state.message, getAuthHeaders());
