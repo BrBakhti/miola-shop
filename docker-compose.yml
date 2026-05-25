@@ -7,13 +7,13 @@ services:
     ports:
       - 9090:8082
     environment:
-      MYSQL_HOST: mysqldb
+      DB_HOST: mysqldb
+      DB_NAME: miola
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_PORT: 3306
     depends_on:
       - mysqldb
-
   mysqldb:
     container_name: mysqldb
     image: mysql
@@ -24,6 +24,5 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - mysql-data:/var/lib/mysql
-
 volumes:
   mysql-data:
