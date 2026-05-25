@@ -18,18 +18,6 @@
 
 ---
 
-## Ateliers et Labs realises
-
-| # | Atelier / Lab | Contenu | Statut |
-|---|---|---|---|
-| 1 | Atelier Full Stack 1 - Backend | JPA, Entites, MySQL, Repositories, Spring Data REST | OK |
-| 2 | Atelier Full Stack 2 - Backend | Spring Security, JWT, Swagger, Controllers REST | OK |
-| 3 | Atelier Full Stack 3 - Frontend | React, Bootstrap, Axios, Login, CRUD Voitures | OK |
-| 4 | Atelier Docker Spring Boot MySQL | Dockerfile multi-stage, docker-compose, volumes | OK |
-| 5 | Lab 1 Kubernetes | Minikube, nginx, scale, NodePort, LoadBalancer, YAML, rollout | OK |
-| 6 | Lab 2 Kubernetes | MySQL PVC, ConfigMap, Secrets, Spring Boot 3 replicas | OK |
-
----
 
 ## Structure du projet
 
@@ -116,7 +104,7 @@ docker-compose down
 
 ---
 
-## Option 2 — Kubernetes Minikube (Lab 2)
+## Option 2 — Kubernetes Minikube 
 
 ### Prerequis
 - Docker Desktop
